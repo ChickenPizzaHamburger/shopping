@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jw.shopping.dao.ProductDAO">
+	
+	<insert id="addProduct" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO products (product_name, product_price, product_number, product_category, added_by) 
+		VALUES (#{name}, #{price}, #{number}, #{category}, #{addedBy})
+	</insert>
+	
+	<update id="updateImagePath">
+		UPDATE products
+        SET image_path = #{imagePath}
+        WHERE product_id = #{id}
+	</update>
+
+	<delete id="deleteProduct">
+		DELETE FROM products
+        WHERE product_id = #{productId}
+	</delete>
+	
+	<select id="getProductById" resultType="com.jw.shopping.dto.Product">
+		SELECT product_id AS id,
+               product_name AS name,
+               product_price AS price,
+               product_number AS number,
+               product_category AS category,
+               COALESCE(image_path, 'noimage.gif') AS imagePath
+        FROM products
+        WHERE product_id = #{productId}
+	</select>
+	
+	<select id="getProducts" resultType="com.jw.shopping.dto.Product" parameterType="map">
+	    <choose>
+	        <when test="categoryId == 0">
+	            SELECT product_id AS id, 
+	                   product_name AS name, 
+	                   product_price AS price, 
+	                   product_number AS number, 
+	                   product_category AS category, 
+	                   COALESCE(image_path, 'noimage.gif') AS imagePath
+	            FROM products
+	            LIMIT #{pageSize} OFFSET #{offset}
+	        </when>
+	        <otherwise>
+	            SELECT product_id AS id, 
+	                   product_name AS name, 
+	                   product_price AS price, 
+	                   product_number AS number, 
+	                   product_category AS category, 
+	                   COALESCE(image_path, 'noimage.gif') AS imagePath
+	            FROM products
+	            WHERE product_category = #{categoryId}
+	            LIMIT #{pageSize} OFFSET #{offset}
+	        </otherwise>
+	    </choose>
+	</select>
+	
+	<select id="getTotalPages" resultType="int">
+	    <choose>
+	        <!-- 모든 카테고리의 페이지 수 계산 -->
+	        <when test="categoryId == 0">
+	            SELECT CEIL(COUNT(*) * 1.0 / #{pageSize}) 
+	            FROM products
+	        </when>
+	        <!-- 특정 카테고리의 페이지 수 계산 -->
+	        <otherwise>
+	            SELECT CEIL(COUNT(*) * 1.0 / #{pageSize}) 
+	            FROM products 
+	            WHERE product_category = #{categoryId}
+	        </otherwise>
+	    </choose>
+	</select>
+
+</mapper>

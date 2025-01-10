@@ -1,0 +1,103 @@
+@charset "EUC-KR";
+body{
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f9;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+tbody td {
+    padding: 10px;
+    vertical-align: top;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="date"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-spacing: 10px;
+}
+
+input[type="text"]{
+	margin-right: 7px;
+}
+
+.login{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.submit {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	padding: 12px 20px;
+	border-radius: 8px;
+	width: 100%;
+	margin-top: 10px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.3s;
+}
+
+.submit:hover {
+	background-color: #0056b3;
+}
+
+.reset {
+	background-color: #00bfff;
+	color: #fff;
+	border: none;
+	padding: 12px 20px;
+	border-radius: 8px;
+	width: 100%;
+	margin-top: 10px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.3s;
+}
+
+.reset:hover {
+	background-color: #0077b3;
+}
+
+a {
+	text-decoration: none;
+	color: #007bff;
+	font-size: 16px;
+	display: block;
+	text-align: center;
+	margin-top: 20px;
+}
+
+a:hover {
+	color: #0056b3;
+}

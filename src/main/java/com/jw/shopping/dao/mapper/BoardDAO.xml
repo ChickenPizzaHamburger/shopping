@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jw.shopping.dao.BoardDAO">
+
+	<select id="list" resultType="com.jw.shopping.dto.Board">
+        SELECT bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent, productId, boardType
+        FROM board 
+        WHERE productId = #{param1}
+          AND boardType = #{param2}
+        ORDER BY bGroup DESC, bStep ASC
+    </select>
+	
+	<insert id="write" parameterType="com.jw.shopping.dto.Board" useGeneratedKeys="true" keyProperty="bId">
+        INSERT INTO board (
+            bName, 
+            bTitle, 
+            bContent, 
+            bHit, 
+            bGroup, 
+            bStep, 
+            bIndent, 
+            productId, 
+            boardType
+        ) 
+        VALUES (
+            #{bName}, 
+            #{bTitle}, 
+            #{bContent}, 
+            0, 
+            #{bGroup}, 
+            0, 
+            0, 
+            #{productId}, 
+            #{boardType}
+        )
+    </insert>
+	
+	<select id="lastNum" resultType="java.lang.Integer">
+	    SELECT IFNULL(MAX(bId), 1) FROM board
+	</select>
+	
+	<select id="contentView" parameterType="int" resultType="com.jw.shopping.dto.Board">
+	    SELECT * FROM board WHERE bId = #{bId}
+	</select>
+	
+	<update id="upHit" parameterType="int">
+	    UPDATE board SET bHit = bHit + 1 WHERE bId = #{bId}
+	</update>
+
+	<update id="modify" parameterType="com.jw.shopping.dto.Board">
+	    UPDATE board 
+	    SET 
+	        bName = #{bName},
+	        bTitle = #{bTitle},
+	        bContent = #{bContent}
+	    WHERE 
+	        bId = #{bId}
+	</update>
+	
+	<delete id="delete">
+	    DELETE FROM board
+	    WHERE bId = #{bId}
+	</delete>
+
+	<select id="reply_view" parameterType="int" resultType="com.jw.shopping.dto.Board">
+	    SELECT * 
+	    FROM board 
+	    WHERE bId = #{bId}
+	</select>
+	
+	<insert id="reply" parameterType="com.jw.shopping.dto.Board">
+		INSERT INTO board (bName, bTitle, bContent, bGroup, bStep, bIndent, productId, boardType)
+        VALUES (#{bName}, #{bTitle}, #{bContent}, #{bGroup}, #{bStep}, #{bIndent}, #{productId}, #{boardType})
+	</insert>
+	
+	<update id="replyShape" parameterType="map">
+		UPDATE board 
+        SET bStep = bStep + 1 
+        WHERE bGroup = #{strGroup} AND bStep > #{strStep}
+	</update>
+	
+	<select id="getBoardListByProductIdAndType" resultType="com.jw.shopping.dto.Board">
+	    SELECT bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent, productId, boardType
+	    FROM board
+	    WHERE productId = #{productId} AND boardType = #{boardType}
+	</select>
+
+</mapper>

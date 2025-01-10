@@ -1,0 +1,189 @@
+@charset "EUC-KR";
+body {
+    font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	background-color: #333;
+	color: white;
+	padding: 10px 0;
+	text-align: right;
+}
+
+nav {
+	background-color: #444;
+	color: white;
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+nav a {
+	color: white;
+	margin: 0 10px;
+	text-decoration: none;
+}
+
+nav .search-bar {
+	width: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+nav .search-bar input[type="text"] {
+	width: 80%;
+	padding: 10px;
+	border: none;
+	border-radius: 3px;
+}
+
+nav .search-bar button {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 3px;
+	background-color: #555;
+	color: white;
+	cursor: pointer;
+}
+
+nav .menu {
+	display: flex;
+	align-items: center;
+}
+
+nav .menu a {
+	color: white;
+	margin: 0 10px;
+	text-decoration: none;
+}
+
+aside {
+	background-color: #f4f4f4;
+	padding: 10px;
+	width: 200px; /* 박스 너비를 좀 더 좁게 */
+	float: left;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+aside h3 {
+	font-size: 18px; /* 글씨 크기 조금 줄임 */
+	color: #333;
+	cursor: pointer;
+	text-align: center;
+	background-color: #4CAF50;
+	color: white;
+	padding: 8px;
+	border-radius: 5px;
+	margin-bottom: 5px;
+}
+
+aside ul {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+aside ul li {
+	margin: 3px 0;
+	margin-top: 0; /* li 항목 상단의 기본 마진을 제거 */
+	margin-bottom: 5px; /* li 항목 하단의 마진을 줄여 간격을 줄임 */
+	padding: 8px; /* 패딩 줄임 */
+	background-color: #f9f9f9; /* 배경을 밝은 색으로 변경 */
+	border-radius: 5px;
+	cursor: pointer;
+	color: #333; /* 텍스트 색상 변경 */
+	font-size: 14px; /* 글씨 크기 줄임 */
+	transition: background-color 0.3s ease;
+	text-decoration: none; /* 링크 스타일 제거 */
+	text-align: center; /* 가운데 정렬 */
+}
+
+aside ul li a {
+	color: inherit; /* 부모 요소의 색상을 상속 */
+	text-decoration: none; /* 밑줄 없애기 */
+	cursor: default; /* 링크의 기본 커서가 아니라 일반 커서로 변경 */
+}
+
+aside ul li:hover {
+	background-color: #f0f0f0; /* 호버 시 색상 변경 */
+}
+
+.admin-button {
+	margin-top: auto;
+	padding: 8px 15px;
+	background-color: #FFA500; /* 주황색으로 변경 */
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 14px;
+	cursor: pointer;
+	text-decoration: none;
+	text-align: center; /* 텍스트 가운데 정렬 */
+	display: inline-block; /* 버튼처럼 동작하도록 설정 */
+	width: auto; /* 필요에 따라 너비 조정 */
+}
+
+.admin-button:hover {
+	background-color: #ff8c00; /* 호버 시 배경 색상 변경 */
+}
+
+main {
+	padding: 10px;
+	margin-left: 220px; /* aside 영역을 벗어나지 않도록 */
+}
+
+footer {
+	background-color: #333;
+	color: white;
+	text-align: center;
+	padding: 10px 0;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+}
+
+footer a {
+	color: white;
+	margin: 0 5px;
+	text-decoration: none;
+}
+
+/* 알림 기본 스타일 */
+.alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    background-color: #333;
+    opacity: 0.9;
+    z-index: 9999;
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+/* 성공 알림 스타일 */
+.alert.success {
+    background-color: green;
+}
+
+/* 실패 알림 스타일 */
+.alert.error {
+    background-color: red;
+}
+
+/* 알림 등장 애니메이션 */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}

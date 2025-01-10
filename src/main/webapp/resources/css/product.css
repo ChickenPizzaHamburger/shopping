@@ -1,0 +1,100 @@
+@charset "EUC-KR";
+
+/* 상품 목록을 4개씩 출력 */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4개의 컬럼 */
+    grid-gap: 20px;  /* 상품 간 간격 */
+    margin-top: 20px;
+    overflow: hidden; /* 오버플로 처리 */
+}
+
+.product {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1px; /* 패딩을 더 줄여서 세로 크기 줄이기 */
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    height: 250px; /* 상품 박스의 높이 고정 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product:hover {
+    transform: translateY(-5px);  /* 호버 시 살짝 위로 올라오게 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+    width: 120px; /* 이미지 크기 더 줄이기 */
+    height: 120px; /* 이미지 크기 더 줄이기 */
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.product-name {
+    font-size: 16px;  /* 폰트 크기 줄이기 */
+    font-weight: bold;
+    margin-top: 6px;  /* 상단 마진을 더 줄여서 공간 절약 */
+    color: #333;
+    flex-grow: 1; /* 이름 부분이 남은 공간을 차지하도록 */
+}
+
+.product-price {
+    font-size: 14px;  /* 가격 폰트 크기 줄이기 */
+    color: #ff6600;
+    margin-top: 4px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 8px;  /* 페이지네이션 버튼 크기 줄이기 */
+    margin: 0 5px;
+    text-decoration: none;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.pagination a.active {
+    background-color: #ff6600;
+    color: white;
+}
+
+.product-image-container {
+    width: 130px; /* 이미지 컨테이너 크기 줄이기 */
+    height: 130px; /* 이미지 컨테이너 크기 줄이기 */
+    overflow: hidden;
+    position: relative;
+}
+
+.product-image-container::after {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+    float: left;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* 이미지 크기 지정 */
+.product img {
+    width: 120px; /* 이미지 크기 더 줄이기 */
+    height: 120px; /* 이미지 크기 더 줄이기 */
+    object-fit: cover;
+    object-position: center;
+}

@@ -1,0 +1,150 @@
+@charset "EUC-KR";
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    text-align: center;
+}
+
+form {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+thead th {
+    text-align: center;
+    background-color: #00bfff;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+tbody td {
+    padding: 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+label:hover {
+    color: #007bff;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="date"] {
+    width: 90%;
+    padding: 14px;
+    margin-top: 1px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="date"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+    background-color: #fff;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: 5px; 
+}
+
+.is-invalid {
+    border: 1px solid red;
+}
+
+input[type="radio"] {
+    display: none;
+    margin-right: 5px;
+}
+
+input[type="radio"] + label {
+    display: inline-block;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+input[type="radio"]:checked + label {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+footer input[type="submit"], footer input[type="reset"] {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+footer input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+footer input[type="reset"] {
+    background-color: #dc3545;
+}
+
+footer input[type="reset"]:hover {
+    background-color: #c82333;
+}
+
+nav.login {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 14px;
+    color: #007bff;
+}
+
+nav.login a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+nav.login a:hover {
+    color: #0056b3;
+}

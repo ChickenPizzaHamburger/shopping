@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jw.shopping.dao.UserDAO">
+	
+	<insert id="signup" parameterType="com.jw.shopping.dto.User">
+	    INSERT INTO users (id, password, email, name, sex, birthday, role, createdAt)
+	    VALUES (#{id}, #{password}, #{email}, #{name}, #{sex.value}, #{birthday}, #{role.value}, NOW())
+	</insert>
+	
+	<select id="getPasswordByUserId" resultType="String">
+        SELECT password FROM users WHERE id = #{userId}
+    </select>
+	
+	<select id="getUserById" resultType="com.jw.shopping.dto.User">
+	    SELECT id, email, name, sex, birthday, role 
+        FROM users 
+        WHERE id = #{id}
+	</select>
+	
+	<select id="isUserIdDuplicate" parameterType="string" resultType="boolean">
+		SELECT COUNT(*) FROM users WHERE id = #{userId}
+	</select>
+	
+	<select id="isEmailDuplicate" parameterType="string" resultType="boolean">
+		SELECT COUNT(*) FROM users WHERE email = #{email}
+	</select>
+
+
+</mapper>

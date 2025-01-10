@@ -1,0 +1,81 @@
+@charset "EUC-KR"; /* 문자 인코딩 설정 */
+
+.add-product-page body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* 배경 색상 밝게 */
+}
+
+.add-product-page header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.add-product-page form {
+    max-width: 600px; /* 폼의 최대 너비를 줄임 */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-product-page form div {
+    margin-bottom: 15px; /* 입력 필드 간의 간격을 줄임 */
+}
+
+.add-product-page label {
+    font-size: 14px; /* 폰트 크기를 조금 줄임 */
+    color: #333;
+    display: block;
+    margin-bottom: 6px; /* 라벨과 입력 필드 간격을 줄임 */
+}
+
+.add-product-page input[type="text"],
+.add-product-page input[type="number"],
+.add-product-page select {
+    width: 100%;
+    padding: 8px; /* 패딩을 줄여서 입력 필드를 더 좁게 만듦 */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px; /* 폰트 크기를 줄여서 더 간결한 스타일 */
+    box-sizing: border-box;
+}
+
+.add-product-page input[type="text"]:focus,
+.add-product-page input[type="number"]:focus,
+.add-product-page select:focus {
+    border-color: #4CAF50; /* 포커스 시 border 색상 변경 */
+}
+
+.add-product-page button[type="submit"] {
+    padding: 10px 18px; /* 버튼의 크기를 줄임 */
+    background-color: #4CAF50; /* 버튼 색상 */
+    color: white;
+    font-size: 14px; /* 버튼의 폰트 크기를 줄임 */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.add-product-page button[type="submit"]:hover {
+    background-color: #45a049; /* 버튼 호버 시 색상 */
+}
+
+.add-product-page a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.add-product-page a:hover {
+    text-decoration: underline;
+}
